@@ -1,0 +1,4 @@
+node_modules
+ormconfig.env
+.env
+.js
