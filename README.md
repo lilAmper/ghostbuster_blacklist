@@ -1,5 +1,6 @@
 # ghostbuster-blacklist
-Ghostbuster Blacklist - API
+
+Ghostbuster Blacklist sistemine ait ve açık kaynak kodlu bir şekilde geliştirilmesine devam edilen API.
 
 # ormconfig.env example
 
