@@ -2,6 +2,9 @@
 
 Ghostbuster Blacklist sistemine ait ve açık kaynak kodlu bir şekilde geliştirilmesine devam edilen API.
 
+todo:
+prisma rework yapılacak.
+
 # ormconfig.env example
 
 ```
