@@ -8,7 +8,7 @@ generator client {
 }
 
 model Server {
-    id   Int    @id @default(autoincrement())
+    id   String @id @default(uuid())
     name String @default("yok")
     ip   String @default("0.0.0.0")
     port Int    @default(7777)
