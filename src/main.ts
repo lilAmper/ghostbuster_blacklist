@@ -7,4 +7,5 @@ import "./Routes/api";
 
 app.use(express.json());
 
+console.log("hallov");
 app.listen(3000);

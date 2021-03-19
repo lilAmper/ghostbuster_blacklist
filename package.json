@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "start": "nodemon .",
+    "start": "node .",
     "build": "tsc"
   },
   "author": "",
