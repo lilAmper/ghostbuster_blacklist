@@ -1,4 +1,13 @@
 {
     "name": "Ghostbuster Blacklist",
-    "version": 2
+    "version": 2,
+    "builds": [
+        {
+            "src": [
+                "./build/*.js",
+                "./build/**/*.js"
+            ],
+            "use": "@now/node-server"
+        }
+    ]
 }
