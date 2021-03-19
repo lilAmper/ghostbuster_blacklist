@@ -11,6 +11,6 @@
         {
             "src": "/App/Routes/(.*)",
             "dest": "build/main.js"
-        },
+        }
     ]
 }
