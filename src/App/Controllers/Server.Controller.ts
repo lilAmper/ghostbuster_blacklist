@@ -3,6 +3,7 @@ import { prisma } from "../Services/prismaClient";
 
 import * as sampQuery from '../Services/sampQuery';
 import { serverType } from '../Enum/serverTypes';
+import { ServerData } from "../Interfaces/ServerData";
 
 export async function serverList(req: Request, res: Response) {
     const serverResponse = await prisma.server.findMany();
@@ -40,10 +41,17 @@ function getServersGameData(serverResponse: any) {
                         if (error)
                             console.log("[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.");
                         else {
-                            resolve({
-                                serverSqlData: server,
-                                serverGameData: response
-                            });
+                            const serverData: ServerData = {
+                                id: server.id,
+                                ip: server.ip,
+                                name: response.servername,
+                                port: server.port,
+                                type: server.type,
+                                players: response.players,
+                                maxplayers: response.maxplayers
+                            };
+
+                            resolve(serverData);
                         }
                     });
                 }
