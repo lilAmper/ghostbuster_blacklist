@@ -140,15 +140,15 @@ export var getServerInfo = (serverip: any, serverport: any, reply: any) => {
             if (error) return reply.apply(serverip, [true, response]);
             serverinfo["properties"] = response;
 
-            if (parseInt(serverinfo.players) < 100) {
+            /*if (parseInt(serverinfo.players) < 100) {
                 safeRequest.call(1, serverip, serverport, "d", function (error: any, response: any) {
                     if (error) return reply.apply(serverip, [true, response]);
                     serverinfo["playerlist"] = response;
 
                     return reply.apply(serverip, [false, serverinfo]);
                 });
-            }
-            else return reply.apply(serverip, [false, serverinfo]);
+            }*/
+            return reply.apply(serverip, [false, serverinfo]);
         });
     });
 }

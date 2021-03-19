@@ -38,7 +38,7 @@ function getServersGameData(serverResponse: any) {
                 if (server.type == serverType.SAMP) {
                     getServerInfo(server.ip, server.port, (error: boolean, response: any) => {
                         if (error)
-                            console.log({ message: "[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.", });
+                            console.log("[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.");
 
                         resolve({
                             serverSqlData: server,
