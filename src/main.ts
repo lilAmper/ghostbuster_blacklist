@@ -1,5 +1,5 @@
 import express from "express";
-import { connectDatabase } from './App/Services/database';
+import { prisma } from './App/Services/prismaClient';
 
 export const app = express();
 
@@ -7,5 +7,4 @@ import "./Routes/api";
 
 app.use(express.json());
 
-connectDatabase();
 app.listen(3000);

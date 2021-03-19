@@ -1,13 +1,11 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "rootDir": "./src",
-        "outDir": "./build",
-        "esModuleInterop": true,
+        "sourceMap": true,
+        "outDir": "build",
         "strict": true,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "lib": [
+            "esnext"
+        ],
+        "esModuleInterop": true
     }
 }

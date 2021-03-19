@@ -1,6 +1,4 @@
 import { app } from "../main";
-import { Request, Response } from "express";
+import { serverList } from '../App/Controllers/Server.Controller';
 
-app.get("/accounts", function (req: Request, res: Response) {
-    res.status(200).send("naber");
-});
+app.get("/servers", serverList);
