@@ -17,7 +17,7 @@ export async function serverList(req: Request, res: Response) {
         return;
     }
 
-    const servers: any = getServersGameData(serverResponse);
+    const servers: any = await getServersGameData(serverResponse);
 
     Promise.all(servers)
         .then((server) => {
@@ -38,10 +38,10 @@ function getServersGameData(serverResponse: any) {
                 if (server.type == serverType.SAMP) {
                     getServerInfo(server.ip, server.port, (error: boolean, response: any) => {
                         if (error)
-                            reject({ message: "[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.", });
+                            console.log({ message: "[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.", });
 
                         resolve({
-                            serverSqlData: serverResponse,
+                            serverSqlData: server,
                             serverGameData: response
                         });
                     });
