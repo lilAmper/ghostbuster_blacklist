@@ -9,6 +9,7 @@ exports.app = express_1["default"]();
 require("./Routes/api");
 exports.app.use(express_1["default"].json());
 var port = process.env.PORT || 3000;
-console.log("hallovv" + port);
-exports.app.listen(port);
+exports.app.listen(port, function () {
+    console.log("server started at http://localhost:" + port);
+});
 //# sourceMappingURL=main.js.map

@@ -6,6 +6,9 @@ import { serverType } from '../Enum/serverTypes';
 import { ServerData } from "../Interfaces/ServerData";
 
 export async function serverList(req: Request, res: Response) {
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
     const serverResponse = await prisma.server.findMany();
 
     if (!serverResponse.length) {

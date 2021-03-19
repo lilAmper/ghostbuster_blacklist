@@ -64,7 +64,10 @@ function serverList(req, res) {
         var serverResponse, err, servers;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, prismaClient_1.prisma.server.findMany()];
+                case 0:
+                    res.setHeader('Content-Type', 'text/html');
+                    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+                    return [4 /*yield*/, prismaClient_1.prisma.server.findMany()];
                 case 1:
                     serverResponse = _a.sent();
                     if (!serverResponse.length) {
