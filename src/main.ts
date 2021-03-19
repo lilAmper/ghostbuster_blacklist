@@ -7,5 +7,7 @@ import "./Routes/api";
 
 app.use(express.json());
 
-console.log("hallovv");
-app.listen(3000);
+const port = process.env.PORT || 3000;
+
+console.log("hallovv" + port);
+app.listen(port);
