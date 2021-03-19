@@ -33,17 +33,18 @@ export async function serverList(req: Request, res: Response) {
 function getServersGameData(serverResponse: any) {
     const servers: any = [];
     servers.push(
-        new Promise((resolve, reject) => {
+        new Promise((resolve) => {
             serverResponse.forEach((server: any) => {
                 if (server.type == serverType.SAMP) {
                     getServerInfo(server.ip, server.port, (error: boolean, response: any) => {
                         if (error)
                             console.log("[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.");
-
-                        resolve({
-                            serverSqlData: server,
-                            serverGameData: response
-                        });
+                        else {
+                            resolve({
+                                serverSqlData: server,
+                                serverGameData: response
+                            });
+                        }
                     });
                 }
             });
