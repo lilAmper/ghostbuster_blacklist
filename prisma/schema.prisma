@@ -7,10 +7,28 @@ generator client {
     provider = "prisma-client-js"
 }
 
+enum ServerType {
+    SAMP
+    RAGEMP
+    ALTV
+}
+
 model Server {
-    id   String @id @default(uuid())
-    name String @default("yok")
-    ip   String @default("0.0.0.0")
-    port Int    @default(7777)
-    type Int    @default(0)
+    id     String     @id @default(uuid())
+    name   String     @default("yok")
+    ip     String     @default("0.0.0.0")
+    port   Int        @default(7777)
+    type   ServerType @default(SAMP)
+    Bans   Bans[]
+    bansId String?
+}
+
+model Bans {
+    id        String  @id @default(uuid())
+    user_name String  @default("yok")
+    user_ip   String  @default("0.0.0.0")
+    user_hwid String  @default("yok")
+    reason    String  @default("yok")
+    Server    Server? @relation(fields: [serverId], references: [id])
+    serverId  String?
 }

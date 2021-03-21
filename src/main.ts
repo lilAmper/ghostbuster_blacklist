@@ -2,9 +2,9 @@ import express from "express";
 
 export const app = express();
 
-import "./Routes/api";
-
 app.use(express.json());
+
+import "./Routes/api";
 
 const port = process.env.PORT || 3000;
 

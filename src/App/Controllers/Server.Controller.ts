@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { prisma } from "../Services/prismaClient";
 
 import * as sampQuery from '../Services/sampQuery';
-import { serverType } from '../Enum/serverTypes';
 import { ServerData } from "../Interfaces/ServerData";
 
 export async function serverList(req: Request, res: Response) {
@@ -36,7 +35,7 @@ function getServersGameData(serverResponse: any) {
     servers.push(
         new Promise((resolve) => {
             serverResponse.forEach((server: any) => {
-                if (server.type == serverType.SAMP) {
+                if (server.type === "SAMP") {
                     sampQuery.getServerInfo(server.ip, server.port, (error: boolean, response: any) => {
                         if (error)
                             console.log("[SAMP] " + server.name + " isimli sunucu ile iletişim kurulamadığı için veriler çekilemedi.");
