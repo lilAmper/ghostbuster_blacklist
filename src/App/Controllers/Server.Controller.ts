@@ -47,7 +47,8 @@ function getServersGameData(serverResponse: any) {
                                 port: server.port,
                                 type: server.type,
                                 players: response.players,
-                                maxplayers: response.maxplayers
+                                maxplayers: response.maxplayers,
+                                accounts: server.accounts
                             };
 
                             resolve(serverData);

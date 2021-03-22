@@ -14,13 +14,14 @@ enum ServerType {
 }
 
 model Server {
-    id     String     @id @default(uuid())
-    name   String     @default("yok")
-    ip     String     @default("0.0.0.0")
-    port   Int        @default(7777)
-    type   ServerType @default(SAMP)
-    Bans   Bans[]
-    bansId String?
+    id       String     @id @default(uuid())
+    name     String     @default("yok")
+    ip       String     @default("0.0.0.0")
+    port     Int        @default(7777)
+    type     ServerType @default(SAMP)
+    Bans     Bans[]
+    bansId   String?
+    accounts Accounts[]
 }
 
 model Bans {
@@ -29,6 +30,14 @@ model Bans {
     user_ip   String  @default("0.0.0.0")
     user_hwid String  @default("yok")
     reason    String  @default("yok")
+    Server    Server? @relation(fields: [serverId], references: [id])
+    serverId  String?
+}
+
+model Accounts {
+    secret_id String  @id @default(uuid())
+    name      String  @default("yok")
+    lastip    String  @default("0.0.0.0")
     Server    Server? @relation(fields: [serverId], references: [id])
     serverId  String?
 }

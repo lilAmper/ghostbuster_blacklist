@@ -5,5 +5,6 @@ export interface ServerData {
     port: number,
     type: number,
     players: number,
-    maxplayers: number
+    maxplayers: number,
+    accounts: any
 }
