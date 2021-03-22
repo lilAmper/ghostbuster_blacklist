@@ -5,5 +5,5 @@ Ghostbuster Blacklist sistemine ait ve açık kaynak kodlu bir şekilde gelişti
 # .env example
 
 ```
-DATABASE_URL="prisma-example-url"
+DATABASE_URL="url"
 ```
